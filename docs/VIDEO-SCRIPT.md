@@ -20,7 +20,7 @@ The debug output shows the declared rectangles and baselines. Coordinates use bo
 
 ## 3:00–3:45 — Show verification and failure
 
-The tests cover the contract, nested resolution, formatting, layout, and actual PDF output. PDF.js independently reads every populated text run and checks its content, position, and font-metric bounds. That caught a real difference between kerning estimates and the library's emitted character advances, which I corrected. Visual inspection then confirms the rectangles match the printed artwork. In the failure demo, missing required data, an invalid identifier, and an oversized amount produce structured errors. No PDF is emitted, and the diagnostic messages contain no raw taxpayer values.
+The tests cover the contract, nested resolution, formatting, layout, and actual PDF output. I also pinned Prettier and check formatting in CI, so the source stays consistent. PDF.js independently reads every populated text run and checks its content, position, and font-metric bounds. That caught a real difference between kerning estimates and the library's emitted character advances, which I corrected. Visual inspection then confirms the rectangles match the printed artwork. In the failure demo, missing required data, an invalid identifier, and an oversized amount produce structured errors. No PDF is emitted, and the diagnostic messages contain no raw taxpayer values.
 
 ## 3:45–4:30 — Close with decisions
 

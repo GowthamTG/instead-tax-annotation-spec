@@ -29,10 +29,7 @@
           "type": "string"
         }
       },
-      "required": [
-        "number",
-        "revision"
-      ],
+      "required": ["number", "revision"],
       "additionalProperties": false
     },
     "basePdf": {
@@ -53,11 +50,7 @@
           "minimum": 1
         }
       },
-      "required": [
-        "fileName",
-        "sha256",
-        "pageCount"
-      ],
+      "required": ["fileName", "sha256", "pageCount"],
       "additionalProperties": false
     },
     "pages": {
@@ -78,11 +71,7 @@
             "exclusiveMinimum": 0
           }
         },
-        "required": [
-          "pageNumber",
-          "width",
-          "height"
-        ],
+        "required": ["pageNumber", "width", "height"],
         "additionalProperties": false
       },
       "minItems": 1
@@ -105,14 +94,7 @@
       "minItems": 0
     }
   },
-  "required": [
-    "specVersion",
-    "templateId",
-    "form",
-    "basePdf",
-    "pages",
-    "fields"
-  ],
+  "required": ["specVersion", "templateId", "form", "basePdf", "pages", "fields"],
   "additionalProperties": false,
   "patternProperties": {
     "^x-": {}
@@ -138,12 +120,7 @@
           "exclusiveMinimum": 0
         }
       },
-      "required": [
-        "x",
-        "y",
-        "width",
-        "height"
-      ],
+      "required": ["x", "y", "width", "height"],
       "additionalProperties": false
     },
     "Style": {
@@ -151,11 +128,7 @@
       "properties": {
         "fontFamily": {
           "type": "string",
-          "enum": [
-            "Helvetica",
-            "Helvetica-Bold",
-            "Courier"
-          ],
+          "enum": ["Helvetica", "Helvetica-Bold", "Courier"],
           "default": "Helvetica"
         },
         "fontSize": {
@@ -175,28 +148,17 @@
         },
         "align": {
           "type": "string",
-          "enum": [
-            "left",
-            "center",
-            "right"
-          ],
+          "enum": ["left", "center", "right"],
           "default": "left"
         },
         "verticalAlign": {
           "type": "string",
-          "enum": [
-            "bottom",
-            "middle",
-            "top"
-          ],
+          "enum": ["bottom", "middle", "top"],
           "default": "middle"
         },
         "overflow": {
           "type": "string",
-          "enum": [
-            "shrink",
-            "error"
-          ],
+          "enum": ["shrink", "error"],
           "default": "shrink"
         }
       },
@@ -234,10 +196,7 @@
               "default": " "
             }
           },
-          "required": [
-            "kind",
-            "parts"
-          ],
+          "required": ["kind", "parts"],
           "additionalProperties": false
         }
       ]
@@ -252,17 +211,11 @@
             },
             "case": {
               "type": "string",
-              "enum": [
-                "asIs",
-                "upper",
-                "lower"
-              ],
+              "enum": ["asIs", "upper", "lower"],
               "default": "asIs"
             }
           },
-          "required": [
-            "type"
-          ],
+          "required": ["type"],
           "additionalProperties": false
         },
         {
@@ -273,27 +226,17 @@
             },
             "rounding": {
               "type": "string",
-              "enum": [
-                "wholeDollarHalfUp",
-                "cents"
-              ],
+              "enum": ["wholeDollarHalfUp", "cents"],
               "default": "wholeDollarHalfUp"
             },
             "negative": {
               "type": "string",
-              "enum": [
-                "parentheses",
-                "minus"
-              ],
+              "enum": ["parentheses", "minus"],
               "default": "parentheses"
             },
             "zero": {
               "type": "string",
-              "enum": [
-                "zero",
-                "dash",
-                "blank"
-              ],
+              "enum": ["zero", "dash", "blank"],
               "default": "zero"
             },
             "thousandsSeparator": {
@@ -301,9 +244,7 @@
               "default": true
             }
           },
-          "required": [
-            "type"
-          ],
+          "required": ["type"],
           "additionalProperties": false
         },
         {
@@ -314,16 +255,10 @@
             },
             "pattern": {
               "type": "string",
-              "enum": [
-                "MM/DD/YYYY",
-                "YYYY-MM-DD"
-              ]
+              "enum": ["MM/DD/YYYY", "YYYY-MM-DD"]
             }
           },
-          "required": [
-            "type",
-            "pattern"
-          ],
+          "required": ["type", "pattern"],
           "additionalProperties": false
         },
         {
@@ -334,24 +269,15 @@
             },
             "subtype": {
               "type": "string",
-              "enum": [
-                "ssn",
-                "ein"
-              ]
+              "enum": ["ssn", "ein"]
             },
             "mask": {
               "type": "string",
-              "enum": [
-                "formatted",
-                "digitsOnly"
-              ],
+              "enum": ["formatted", "digitsOnly"],
               "default": "formatted"
             }
           },
-          "required": [
-            "type",
-            "subtype"
-          ],
+          "required": ["type", "subtype"],
           "additionalProperties": false
         },
         {
@@ -377,9 +303,7 @@
                   ]
                 }
               },
-              "required": [
-                "equals"
-              ],
+              "required": ["equals"],
               "additionalProperties": false
             },
             "group": {
@@ -387,10 +311,7 @@
               "minLength": 1
             }
           },
-          "required": [
-            "type",
-            "checkedWhen"
-          ],
+          "required": ["type", "checkedWhen"],
           "additionalProperties": false
         },
         {
@@ -406,10 +327,7 @@
             },
             "characters": {
               "type": "string",
-              "enum": [
-                "digits",
-                "alphanumeric"
-              ],
+              "enum": ["digits", "alphanumeric"],
               "default": "digits"
             },
             "exactLength": {
@@ -431,19 +349,13 @@
                     "exclusiveMinimum": 0
                   }
                 },
-                "required": [
-                  "offset",
-                  "width"
-                ],
+                "required": ["offset", "width"],
                 "additionalProperties": false
               },
               "minItems": 1
             }
           },
-          "required": [
-            "type",
-            "cellCount"
-          ],
+          "required": ["type", "cellCount"],
           "additionalProperties": false
         }
       ]
@@ -496,21 +408,11 @@
               "type": "string"
             }
           },
-          "required": [
-            "widgetName",
-            "widgetIndex",
-            "label"
-          ],
+          "required": ["widgetName", "widgetIndex", "label"],
           "additionalProperties": false
         }
       },
-      "required": [
-        "id",
-        "page",
-        "rect",
-        "binding",
-        "format"
-      ],
+      "required": ["id", "page", "rect", "binding", "format"],
       "additionalProperties": false,
       "patternProperties": {
         "^x-": {}
@@ -539,19 +441,13 @@
                 "minItems": 1
               }
             },
-            "required": [
-              "fields"
-            ],
+            "required": ["fields"],
             "additionalProperties": false
           },
           "minItems": 1
         }
       },
-      "required": [
-        "id",
-        "arraySource",
-        "slots"
-      ],
+      "required": ["id", "arraySource", "slots"],
       "additionalProperties": false,
       "patternProperties": {
         "^x-": {}

@@ -14,16 +14,8 @@
     "pageCount": 2
   },
   "pages": [
-    {
-      "pageNumber": 1,
-      "width": 612,
-      "height": 792
-    },
-    {
-      "pageNumber": 2,
-      "width": 612,
-      "height": 792
-    }
+    { "pageNumber": 1, "width": 612, "height": 792 },
+    { "pageNumber": 2, "width": 612, "height": 792 }
   ],
   "defaults": {
     "fontFamily": "Helvetica",
@@ -38,22 +30,12 @@
     {
       "id": "taxpayer_name",
       "page": 1,
-      "rect": {
-        "x": 36,
-        "y": 684,
-        "width": 215.25,
-        "height": 14.001
-      },
+      "rect": { "x": 36, "y": 684, "width": 215.25, "height": 14.001 },
       "binding": {
         "kind": "concat",
-        "parts": [
-          "/taxpayer/primary/name/first",
-          "/taxpayer/primary/name/middleInitial"
-        ]
+        "parts": ["/taxpayer/primary/name/first", "/taxpayer/primary/name/middleInitial"]
       },
-      "format": {
-        "type": "text"
-      },
+      "format": { "type": "text" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].f1_14[0]",
         "widgetIndex": 0,
@@ -64,16 +46,9 @@
     {
       "id": "taxpayer_last",
       "page": 1,
-      "rect": {
-        "x": 253,
-        "y": 684,
-        "width": 214.25,
-        "height": 14.001
-      },
+      "rect": { "x": 253, "y": 684, "width": 214.25, "height": 14.001 },
       "binding": "/taxpayer/primary/name/last",
-      "format": {
-        "type": "text"
-      },
+      "format": { "type": "text" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].f1_15[0]",
         "widgetIndex": 0,
@@ -84,54 +59,22 @@
     {
       "id": "taxpayer_ssn",
       "page": 1,
-      "rect": {
-        "x": 469,
-        "y": 684,
-        "width": 107,
-        "height": 14.001
-      },
+      "rect": { "x": 469, "y": 684, "width": 107, "height": 14.001 },
       "binding": "/taxpayer/primary/identifiers/ssn",
       "format": {
         "type": "comb",
         "cellCount": 9,
         "exactLength": 9,
         "cells": [
-          {
-            "offset": 0,
-            "width": 10.8
-          },
-          {
-            "offset": 10.8,
-            "width": 10.8
-          },
-          {
-            "offset": 21.6,
-            "width": 10.8
-          },
-          {
-            "offset": 32.4,
-            "width": 10.8
-          },
-          {
-            "offset": 43.2,
-            "width": 10.8
-          },
-          {
-            "offset": 54,
-            "width": 13.25
-          },
-          {
-            "offset": 67.25,
-            "width": 13.25
-          },
-          {
-            "offset": 80.5,
-            "width": 13.25
-          },
-          {
-            "offset": 93.75,
-            "width": 13.25
-          }
+          { "offset": 0, "width": 10.8 },
+          { "offset": 10.8, "width": 10.8 },
+          { "offset": 21.6, "width": 10.8 },
+          { "offset": 32.4, "width": 10.8 },
+          { "offset": 43.2, "width": 10.8 },
+          { "offset": 54, "width": 13.25 },
+          { "offset": 67.25, "width": 13.25 },
+          { "offset": 80.5, "width": 13.25 },
+          { "offset": 93.75, "width": 13.25 }
         ]
       },
       "provenance": {
@@ -145,16 +88,9 @@
     {
       "id": "street",
       "page": 1,
-      "rect": {
-        "x": 36,
-        "y": 635.998,
-        "width": 380.85,
-        "height": 14.001
-      },
+      "rect": { "x": 36, "y": 635.998, "width": 380.85, "height": 14.001 },
       "binding": "/taxpayer/primary/contact/mailingAddress/street",
-      "format": {
-        "type": "text"
-      },
+      "format": { "type": "text" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_20[0]",
         "widgetIndex": 0,
@@ -164,16 +100,9 @@
     {
       "id": "city",
       "page": 1,
-      "rect": {
-        "x": 36,
-        "y": 612,
-        "width": 294.45,
-        "height": 14.001
-      },
+      "rect": { "x": 36, "y": 612, "width": 294.45, "height": 14.001 },
       "binding": "/taxpayer/primary/contact/mailingAddress/city",
-      "format": {
-        "type": "text"
-      },
+      "format": { "type": "text" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_22[0]",
         "widgetIndex": 0,
@@ -183,16 +112,9 @@
     {
       "id": "state",
       "page": 1,
-      "rect": {
-        "x": 332.2,
-        "y": 612,
-        "width": 63.05,
-        "height": 14.001
-      },
+      "rect": { "x": 332.2, "y": 612, "width": 63.05, "height": 14.001 },
       "binding": "/taxpayer/primary/contact/mailingAddress/state",
-      "format": {
-        "type": "text"
-      },
+      "format": { "type": "text" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_23[0]",
         "widgetIndex": 0,
@@ -202,16 +124,9 @@
     {
       "id": "zip",
       "page": 1,
-      "rect": {
-        "x": 397,
-        "y": 612,
-        "width": 70.25,
-        "height": 14.001
-      },
+      "rect": { "x": 397, "y": 612, "width": 70.25, "height": 14.001 },
       "binding": "/taxpayer/primary/contact/mailingAddress/zip",
-      "format": {
-        "type": "text"
-      },
+      "format": { "type": "text" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].Address_ReadOrder[0].f1_24[0]",
         "widgetIndex": 0,
@@ -221,46 +136,24 @@
     {
       "id": "filing_single",
       "page": 1,
-      "rect": {
-        "x": 97.599,
-        "y": 578,
-        "width": 8,
-        "height": 8
-      },
+      "rect": { "x": 97.599, "y": 578, "width": 8, "height": 8 },
       "binding": "/returnHeader/filingStatus",
-      "format": {
-        "type": "checkbox",
-        "checkedWhen": {
-          "equals": "single"
-        },
-        "group": "filing"
-      },
+      "format": { "type": "checkbox", "checkedWhen": { "equals": "single" }, "group": "filing" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].Checkbox_ReadOrder[0].c1_8[0]",
         "widgetIndex": 0,
         "label": "Single"
       },
-      "style": {
-        "fontSize": 8,
-        "minFontSize": 8,
-        "padding": 0
-      }
+      "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
     },
     {
       "id": "filing_mfj",
       "page": 1,
-      "rect": {
-        "x": 97.599,
-        "y": 566.001,
-        "width": 8,
-        "height": 8
-      },
+      "rect": { "x": 97.599, "y": 566.001, "width": 8, "height": 8 },
       "binding": "/returnHeader/filingStatus",
       "format": {
         "type": "checkbox",
-        "checkedWhen": {
-          "equals": "married_filing_jointly"
-        },
+        "checkedWhen": { "equals": "married_filing_jointly" },
         "group": "filing"
       },
       "provenance": {
@@ -268,77 +161,38 @@
         "widgetIndex": 0,
         "label": "Married filing jointly"
       },
-      "style": {
-        "fontSize": 8,
-        "minFontSize": 8,
-        "padding": 0
-      }
+      "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
     },
     {
       "id": "digital_yes",
       "page": 1,
-      "rect": {
-        "x": 518.4,
-        "y": 497,
-        "width": 8,
-        "height": 8
-      },
+      "rect": { "x": 518.4, "y": 497, "width": 8, "height": 8 },
       "binding": "/returnData/questions/hasDigitalAssets",
-      "format": {
-        "type": "checkbox",
-        "checkedWhen": {
-          "equals": true
-        },
-        "group": "digital"
-      },
+      "format": { "type": "checkbox", "checkedWhen": { "equals": true }, "group": "digital" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].c1_10[0]",
         "widgetIndex": 0,
         "label": "Digital Assets Yes"
       },
-      "style": {
-        "fontSize": 8,
-        "minFontSize": 8,
-        "padding": 0
-      }
+      "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
     },
     {
       "id": "digital_no",
       "page": 1,
-      "rect": {
-        "x": 554.4,
-        "y": 497,
-        "width": 8,
-        "height": 8
-      },
+      "rect": { "x": 554.4, "y": 497, "width": 8, "height": 8 },
       "binding": "/returnData/questions/hasDigitalAssets",
-      "format": {
-        "type": "checkbox",
-        "checkedWhen": {
-          "equals": false
-        },
-        "group": "digital"
-      },
+      "format": { "type": "checkbox", "checkedWhen": { "equals": false }, "group": "digital" },
       "provenance": {
         "widgetName": "topmostSubform[0].Page1[0].c1_10[1]",
         "widgetIndex": 0,
         "label": "Digital Assets No"
       },
-      "style": {
-        "fontSize": 8,
-        "minFontSize": 8,
-        "padding": 0
-      }
+      "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
     },
     {
       "id": "wages",
       "page": 1,
-      "rect": {
-        "x": 504,
-        "y": 330.001,
-        "width": 72,
-        "height": 11.999
-      },
+      "rect": { "x": 504, "y": 330.001, "width": 72, "height": 11.999 },
       "binding": "/income/w2Summary/totalWages",
       "format": {
         "type": "money",
@@ -353,19 +207,12 @@
         "label": "Line 1a wages"
       },
       "required": true,
-      "style": {
-        "align": "right"
-      }
+      "style": { "align": "right" }
     },
     {
       "id": "household_wages",
       "page": 1,
-      "rect": {
-        "x": 504,
-        "y": 318.002,
-        "width": 72,
-        "height": 11.999
-      },
+      "rect": { "x": 504, "y": 318.002, "width": 72, "height": 11.999 },
       "binding": "/income/householdEmployeeWages",
       "format": {
         "type": "money",
@@ -379,19 +226,12 @@
         "widgetIndex": 0,
         "label": "Line 1b household employee wages"
       },
-      "style": {
-        "align": "right"
-      }
+      "style": { "align": "right" }
     },
     {
       "id": "capital_loss",
       "page": 1,
-      "rect": {
-        "x": 504,
-        "y": 90,
-        "width": 72,
-        "height": 11.999
-      },
+      "rect": { "x": 504, "y": 90, "width": 72, "height": 11.999 },
       "binding": "/income/capitalGains/netGainOrLoss",
       "format": {
         "type": "money",
@@ -405,19 +245,12 @@
         "widgetIndex": 0,
         "label": "Line 7a capital gain or loss"
       },
-      "style": {
-        "align": "right"
-      }
+      "style": { "align": "right" }
     },
     {
       "id": "taxable_income",
       "page": 2,
-      "rect": {
-        "x": 504,
-        "y": 636.001,
-        "width": 72,
-        "height": 11.999
-      },
+      "rect": { "x": 504, "y": 636.001, "width": 72, "height": 11.999 },
       "binding": "/calculatedLines/line15TaxableIncome",
       "format": {
         "type": "money",
@@ -431,25 +264,14 @@
         "widgetIndex": 0,
         "label": "Line 15 taxable income"
       },
-      "style": {
-        "align": "right"
-      }
+      "style": { "align": "right" }
     },
     {
       "id": "routing",
       "page": 2,
-      "rect": {
-        "x": 180,
-        "y": 276.999,
-        "width": 129.6,
-        "height": 11.001
-      },
+      "rect": { "x": 180, "y": 276.999, "width": 129.6, "height": 11.001 },
       "binding": "/refund/directDeposit/routingNumber",
-      "format": {
-        "type": "comb",
-        "cellCount": 9,
-        "exactLength": 9
-      },
+      "format": { "type": "comb", "cellCount": 9, "exactLength": 9 },
       "provenance": {
         "widgetName": "topmostSubform[0].Page2[0].RoutingNo[0].f2_32[0]",
         "widgetIndex": 0,
@@ -468,16 +290,9 @@
             {
               "id": "dep1_first",
               "page": 1,
-              "rect": {
-                "x": 145,
-                "y": 471.002,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 145, "y": 471.002, "width": 106.25, "height": 11.999 },
               "binding": "./firstName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_31[0]",
                 "widgetIndex": 0,
@@ -488,16 +303,9 @@
             {
               "id": "dep1_last",
               "page": 1,
-              "rect": {
-                "x": 145,
-                "y": 459.003,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 145, "y": 459.003, "width": 106.25, "height": 11.999 },
               "binding": "./lastName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_35[0]",
                 "widgetIndex": 0,
@@ -508,54 +316,22 @@
             {
               "id": "dep1_ssn",
               "page": 1,
-              "rect": {
-                "x": 145,
-                "y": 447.004,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 145, "y": 447.004, "width": 106.25, "height": 11.999 },
               "binding": "./ssn",
               "format": {
                 "type": "comb",
                 "cellCount": 9,
                 "exactLength": 9,
                 "cells": [
-                  {
-                    "offset": 0,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 12.083333,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 24.166667,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 36.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 48.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 60.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 71.75,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 83.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 94.75,
-                    "width": 11.5
-                  }
+                  { "offset": 0, "width": 12.083333 },
+                  { "offset": 12.083333, "width": 12.083333 },
+                  { "offset": 24.166667, "width": 12.083333 },
+                  { "offset": 36.25, "width": 12 },
+                  { "offset": 48.25, "width": 12 },
+                  { "offset": 60.25, "width": 11.5 },
+                  { "offset": 71.75, "width": 11.5 },
+                  { "offset": 83.25, "width": 11.5 },
+                  { "offset": 94.75, "width": 11.5 }
                 ]
               },
               "provenance": {
@@ -569,16 +345,9 @@
             {
               "id": "dep1_relationship",
               "page": 1,
-              "rect": {
-                "x": 145,
-                "y": 435.005,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 145, "y": 435.005, "width": 106.25, "height": 11.999 },
               "binding": "./relationship",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_43[0]",
                 "widgetIndex": 0,
@@ -589,29 +358,15 @@
             {
               "id": "dep1_credit",
               "page": 1,
-              "rect": {
-                "x": 148,
-                "y": 380.002,
-                "width": 8,
-                "height": 8
-              },
+              "rect": { "x": 148, "y": 380.002, "width": 8, "height": 8 },
               "binding": "./childTaxCredit",
-              "format": {
-                "type": "checkbox",
-                "checkedWhen": {
-                  "equals": true
-                }
-              },
+              "format": { "type": "checkbox", "checkedWhen": { "equals": true } },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent1[0].c1_28[0]",
                 "widgetIndex": 0,
                 "label": "Dependent 1: child tax credit"
               },
-              "style": {
-                "fontSize": 8,
-                "minFontSize": 8,
-                "padding": 0
-              }
+              "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
             }
           ]
         },
@@ -620,16 +375,9 @@
             {
               "id": "dep2_first",
               "page": 1,
-              "rect": {
-                "x": 253,
-                "y": 471.002,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 253, "y": 471.002, "width": 106.25, "height": 11.999 },
               "binding": "./firstName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_32[0]",
                 "widgetIndex": 0,
@@ -640,16 +388,9 @@
             {
               "id": "dep2_last",
               "page": 1,
-              "rect": {
-                "x": 253,
-                "y": 459.003,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 253, "y": 459.003, "width": 106.25, "height": 11.999 },
               "binding": "./lastName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_36[0]",
                 "widgetIndex": 0,
@@ -660,54 +401,22 @@
             {
               "id": "dep2_ssn",
               "page": 1,
-              "rect": {
-                "x": 253,
-                "y": 447.004,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 253, "y": 447.004, "width": 106.25, "height": 11.999 },
               "binding": "./ssn",
               "format": {
                 "type": "comb",
                 "cellCount": 9,
                 "exactLength": 9,
                 "cells": [
-                  {
-                    "offset": 0,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 12.083333,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 24.166667,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 36.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 48.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 60.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 71.75,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 83.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 94.75,
-                    "width": 11.5
-                  }
+                  { "offset": 0, "width": 12.083333 },
+                  { "offset": 12.083333, "width": 12.083333 },
+                  { "offset": 24.166667, "width": 12.083333 },
+                  { "offset": 36.25, "width": 12 },
+                  { "offset": 48.25, "width": 12 },
+                  { "offset": 60.25, "width": 11.5 },
+                  { "offset": 71.75, "width": 11.5 },
+                  { "offset": 83.25, "width": 11.5 },
+                  { "offset": 94.75, "width": 11.5 }
                 ]
               },
               "provenance": {
@@ -721,16 +430,9 @@
             {
               "id": "dep2_relationship",
               "page": 1,
-              "rect": {
-                "x": 253,
-                "y": 435.005,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 253, "y": 435.005, "width": 106.25, "height": 11.999 },
               "binding": "./relationship",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_44[0]",
                 "widgetIndex": 0,
@@ -741,29 +443,15 @@
             {
               "id": "dep2_credit",
               "page": 1,
-              "rect": {
-                "x": 256,
-                "y": 380.002,
-                "width": 8,
-                "height": 8
-              },
+              "rect": { "x": 256, "y": 380.002, "width": 8, "height": 8 },
               "binding": "./childTaxCredit",
-              "format": {
-                "type": "checkbox",
-                "checkedWhen": {
-                  "equals": true
-                }
-              },
+              "format": { "type": "checkbox", "checkedWhen": { "equals": true } },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent2[0].c1_29[0]",
                 "widgetIndex": 0,
                 "label": "Dependent 2: child tax credit"
               },
-              "style": {
-                "fontSize": 8,
-                "minFontSize": 8,
-                "padding": 0
-              }
+              "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
             }
           ]
         },
@@ -772,16 +460,9 @@
             {
               "id": "dep3_first",
               "page": 1,
-              "rect": {
-                "x": 361,
-                "y": 471.002,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 361, "y": 471.002, "width": 106.25, "height": 11.999 },
               "binding": "./firstName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_33[0]",
                 "widgetIndex": 0,
@@ -792,16 +473,9 @@
             {
               "id": "dep3_last",
               "page": 1,
-              "rect": {
-                "x": 361,
-                "y": 459.003,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 361, "y": 459.003, "width": 106.25, "height": 11.999 },
               "binding": "./lastName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_37[0]",
                 "widgetIndex": 0,
@@ -812,54 +486,22 @@
             {
               "id": "dep3_ssn",
               "page": 1,
-              "rect": {
-                "x": 361,
-                "y": 447.004,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 361, "y": 447.004, "width": 106.25, "height": 11.999 },
               "binding": "./ssn",
               "format": {
                 "type": "comb",
                 "cellCount": 9,
                 "exactLength": 9,
                 "cells": [
-                  {
-                    "offset": 0,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 12.083333,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 24.166667,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 36.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 48.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 60.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 71.75,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 83.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 94.75,
-                    "width": 11.5
-                  }
+                  { "offset": 0, "width": 12.083333 },
+                  { "offset": 12.083333, "width": 12.083333 },
+                  { "offset": 24.166667, "width": 12.083333 },
+                  { "offset": 36.25, "width": 12 },
+                  { "offset": 48.25, "width": 12 },
+                  { "offset": 60.25, "width": 11.5 },
+                  { "offset": 71.75, "width": 11.5 },
+                  { "offset": 83.25, "width": 11.5 },
+                  { "offset": 94.75, "width": 11.5 }
                 ]
               },
               "provenance": {
@@ -873,16 +515,9 @@
             {
               "id": "dep3_relationship",
               "page": 1,
-              "rect": {
-                "x": 361,
-                "y": 435.005,
-                "width": 106.25,
-                "height": 11.999
-              },
+              "rect": { "x": 361, "y": 435.005, "width": 106.25, "height": 11.999 },
               "binding": "./relationship",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_45[0]",
                 "widgetIndex": 0,
@@ -893,29 +528,15 @@
             {
               "id": "dep3_credit",
               "page": 1,
-              "rect": {
-                "x": 364,
-                "y": 380.002,
-                "width": 8,
-                "height": 8
-              },
+              "rect": { "x": 364, "y": 380.002, "width": 8, "height": 8 },
               "binding": "./childTaxCredit",
-              "format": {
-                "type": "checkbox",
-                "checkedWhen": {
-                  "equals": true
-                }
-              },
+              "format": { "type": "checkbox", "checkedWhen": { "equals": true } },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent3[0].c1_30[0]",
                 "widgetIndex": 0,
                 "label": "Dependent 3: child tax credit"
               },
-              "style": {
-                "fontSize": 8,
-                "minFontSize": 8,
-                "padding": 0
-              }
+              "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
             }
           ]
         },
@@ -924,16 +545,9 @@
             {
               "id": "dep4_first",
               "page": 1,
-              "rect": {
-                "x": 469,
-                "y": 471.002,
-                "width": 107,
-                "height": 11.999
-              },
+              "rect": { "x": 469, "y": 471.002, "width": 107, "height": 11.999 },
               "binding": "./firstName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row1[0].f1_34[0]",
                 "widgetIndex": 0,
@@ -944,16 +558,9 @@
             {
               "id": "dep4_last",
               "page": 1,
-              "rect": {
-                "x": 469,
-                "y": 459.003,
-                "width": 107,
-                "height": 11.999
-              },
+              "rect": { "x": 469, "y": 459.003, "width": 107, "height": 11.999 },
               "binding": "./lastName",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row2[0].f1_38[0]",
                 "widgetIndex": 0,
@@ -964,54 +571,22 @@
             {
               "id": "dep4_ssn",
               "page": 1,
-              "rect": {
-                "x": 469,
-                "y": 447.004,
-                "width": 107,
-                "height": 11.999
-              },
+              "rect": { "x": 469, "y": 447.004, "width": 107, "height": 11.999 },
               "binding": "./ssn",
               "format": {
                 "type": "comb",
                 "cellCount": 9,
                 "exactLength": 9,
                 "cells": [
-                  {
-                    "offset": 0,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 12.083333,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 24.166667,
-                    "width": 12.083333
-                  },
-                  {
-                    "offset": 36.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 48.25,
-                    "width": 12
-                  },
-                  {
-                    "offset": 60.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 71.75,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 83.25,
-                    "width": 11.5
-                  },
-                  {
-                    "offset": 94.75,
-                    "width": 11.5
-                  }
+                  { "offset": 0, "width": 12.083333 },
+                  { "offset": 12.083333, "width": 12.083333 },
+                  { "offset": 24.166667, "width": 12.083333 },
+                  { "offset": 36.25, "width": 12 },
+                  { "offset": 48.25, "width": 12 },
+                  { "offset": 60.25, "width": 11.5 },
+                  { "offset": 71.75, "width": 11.5 },
+                  { "offset": 83.25, "width": 11.5 },
+                  { "offset": 94.75, "width": 11.5 }
                 ]
               },
               "provenance": {
@@ -1025,16 +600,9 @@
             {
               "id": "dep4_relationship",
               "page": 1,
-              "rect": {
-                "x": 469,
-                "y": 435.005,
-                "width": 107,
-                "height": 11.999
-              },
+              "rect": { "x": 469, "y": 435.005, "width": 107, "height": 11.999 },
               "binding": "./relationship",
-              "format": {
-                "type": "text"
-              },
+              "format": { "type": "text" },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row4[0].f1_46[0]",
                 "widgetIndex": 0,
@@ -1045,29 +613,15 @@
             {
               "id": "dep4_credit",
               "page": 1,
-              "rect": {
-                "x": 472,
-                "y": 380.002,
-                "width": 8,
-                "height": 8
-              },
+              "rect": { "x": 472, "y": 380.002, "width": 8, "height": 8 },
               "binding": "./childTaxCredit",
-              "format": {
-                "type": "checkbox",
-                "checkedWhen": {
-                  "equals": true
-                }
-              },
+              "format": { "type": "checkbox", "checkedWhen": { "equals": true } },
               "provenance": {
                 "widgetName": "topmostSubform[0].Page1[0].Table_Dependents[0].Row7[0].Dependent4[0].c1_31[0]",
                 "widgetIndex": 0,
                 "label": "Dependent 4: child tax credit"
               },
-              "style": {
-                "fontSize": 8,
-                "minFontSize": 8,
-                "padding": 0
-              }
+              "style": { "fontSize": 8, "minFontSize": 8, "padding": 0 }
             }
           ]
         }

@@ -5,8 +5,8 @@ import hashlib
 
 root = Path(__file__).resolve().parent.parent
 out = root / 'submission/instead-tax-annotation-spec.zip'
-files = [root / name for name in ('README.md', 'package.json', 'package-lock.json', 'tsconfig.json', '.gitignore', '.prettierrc.json')]
-for directory in ('src', 'scripts', 'tests', 'docs', 'examples', '.github'):
+files = [root / name for name in ('README.md', 'package.json', 'package-lock.json', 'tsconfig.json', '.gitignore', '.prettierrc.json', '.prettierignore', '.editorconfig')]
+for directory in ('src', 'scripts', 'tests', 'docs', 'examples', '.github', '.vscode'):
     files.extend(p for p in (root / directory).rglob('*') if p.is_file() and p.suffix in ('.ts', '.json', '.pdf', '.md', '.py', '.yml'))
 files.extend(root / 'output' / name for name in ('f1040-2025-filled.pdf', 'f1040-2025-debug.pdf'))
 out.parent.mkdir(exist_ok=True)

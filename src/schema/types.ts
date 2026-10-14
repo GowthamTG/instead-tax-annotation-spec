@@ -66,13 +66,7 @@ export interface Template {
   [extension: `x-${string}`]: unknown;
 }
 export type Stage =
-  | 'schema'
-  | 'semantic'
-  | 'pdf'
-  | 'resolution'
-  | 'formatting'
-  | 'layout'
-  | 'render';
+  'schema' | 'semantic' | 'pdf' | 'resolution' | 'formatting' | 'layout' | 'render';
 export interface Diagnostic {
   code: string;
   severity: 'error' | 'warning' | 'info';

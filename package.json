@@ -12,8 +12,8 @@
     "demo": "node --import tsx src/cli/demo.ts",
     "demo:fail": "node --import tsx src/cli/demo.ts --fail",
     "package": "python3 scripts/package.py",
-    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.ts\" \"tests/**/*.ts\"",
-    "format:check": "prettier --check \"src/**/*.ts\" \"scripts/**/*.ts\" \"tests/**/*.ts\""
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
   },
   "dependencies": {
     "@cantoo/pdf-lib": "2.11.1",
@@ -22,7 +22,7 @@
   "devDependencies": {
     "@types/node": "24.10.0",
     "pdfjs-dist": "5.4.296",
-    "prettier": "3.6.2",
+    "prettier": "3.9.10",
     "tsx": "4.20.6",
     "typescript": "5.9.3"
   },

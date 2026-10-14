@@ -36,14 +36,17 @@ This template describes a hypothetical one-page form. Replace its placeholder ha
     "pageCount": 1
   },
   "pages": [{ "pageNumber": 1, "width": 612, "height": 792 }],
-  "fields": [{
-    "id": "wages", "page": 1,
-    "rect": { "x": 400, "y": 600, "width": 100, "height": 20 },
-    "binding": "/return/income/wages",
-    "required": true,
-    "format": { "type": "money", "rounding": "wholeDollarHalfUp" },
-    "style": { "align": "right" }
-  }]
+  "fields": [
+    {
+      "id": "wages",
+      "page": 1,
+      "rect": { "x": 400, "y": 600, "width": 100, "height": 20 },
+      "binding": "/return/income/wages",
+      "required": true,
+      "format": { "type": "money", "rounding": "wholeDollarHalfUp" },
+      "style": { "align": "right" }
+    }
+  ]
 }
 ```
 
@@ -53,17 +56,17 @@ Payload `{"return":{"income":{"wages":"1250.50"}}}` displays `1,251`. The text i
 
 All properties not explicitly documented or permitted as extensions MUST be rejected. Only Template, Field, and RepeatingGroup permit `x-` prefixed metadata keys; renderers ignore their values. Other objects are closed. Adding unsupported formatting or binding behavior through metadata is not permitted.
 
-| Entity | Required properties | Optional properties / defaults |
-| --- | --- | --- |
-| Template | `specVersion`, `templateId`, `form`, `basePdf`, `pages`, `fields` | `defaults` inherits the style table; `repeatingGroups` defaults to `[]`; `x-*` metadata |
-| Form | `number`, `revision` strings | `taxYear` integer 1900–2100; `title` string; omitted metadata has no inferred value |
-| BasePdf | `fileName`, `sha256`, `pageCount` | `sourceUrl` string; metadata only, never fetched by the renderer |
-| Page | `pageNumber`, `width`, `height` | None |
-| Rect | `x`, `y`, `width`, `height` | None |
-| Field | `id`, `page`, `rect`, `binding`, `format` | `required: false`, `sensitive: false`, `style`, `description`, `provenance`, `x-*` |
-| Provenance | `widgetName`, `widgetIndex`, `label` | None; calibration-only authoring metadata |
-| RepeatingGroup | `id`, `arraySource`, `slots` | `x-*` metadata |
-| Slot | nonempty `fields` | None |
+| Entity         | Required properties                                               | Optional properties / defaults                                                          |
+| -------------- | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Template       | `specVersion`, `templateId`, `form`, `basePdf`, `pages`, `fields` | `defaults` inherits the style table; `repeatingGroups` defaults to `[]`; `x-*` metadata |
+| Form           | `number`, `revision` strings                                      | `taxYear` integer 1900–2100; `title` string; omitted metadata has no inferred value     |
+| BasePdf        | `fileName`, `sha256`, `pageCount`                                 | `sourceUrl` string; metadata only, never fetched by the renderer                        |
+| Page           | `pageNumber`, `width`, `height`                                   | None                                                                                    |
+| Rect           | `x`, `y`, `width`, `height`                                       | None                                                                                    |
+| Field          | `id`, `page`, `rect`, `binding`, `format`                         | `required: false`, `sensitive: false`, `style`, `description`, `provenance`, `x-*`      |
+| Provenance     | `widgetName`, `widgetIndex`, `label`                              | None; calibration-only authoring metadata                                               |
+| RepeatingGroup | `id`, `arraySource`, `slots`                                      | `x-*` metadata                                                                          |
+| Slot           | nonempty `fields`                                                 | None                                                                                    |
 
 `specVersion` MUST equal `1.0.0`. No forward-version behavior is inferred. `templateId` MUST match `^[a-z][a-z0-9-]*$`; field/group IDs MUST match `^[a-z][a-z0-9_.-]*$`. Field IDs MUST be globally unique, including all slots. Group IDs MUST be unique among groups. IDs are author-controlled labels, not source values.
 
@@ -73,15 +76,15 @@ All properties not explicitly documented or permitted as extensions MUST be reje
 
 Field style overrides template defaults, which override these base values. JSON Schema `default` annotations do not perform mutation; the renderer applies defaults explicitly.
 
-| Property | Allowed values | Base default |
-| --- | --- | --- |
-| `fontFamily` | Helvetica, Helvetica-Bold, Courier | Helvetica |
-| `fontSize` | number >= 8 | 9 |
-| `minFontSize` | number >= 8, <= resolved fontSize | 8 |
-| `padding` | nonnegative point number | 1 |
-| `align` | left, center, right | left |
-| `verticalAlign` | bottom, middle, top | middle |
-| `overflow` | shrink, error | shrink |
+| Property        | Allowed values                     | Base default |
+| --------------- | ---------------------------------- | ------------ |
+| `fontFamily`    | Helvetica, Helvetica-Bold, Courier | Helvetica    |
+| `fontSize`      | number >= 8                        | 9            |
+| `minFontSize`   | number >= 8, <= resolved fontSize  | 8            |
+| `padding`       | nonnegative point number           | 1            |
+| `align`         | left, center, right                | left         |
+| `verticalAlign` | bottom, middle, top                | middle       |
+| `overflow`      | shrink, error                      | shrink       |
 
 The padded box MUST have positive width and height. Font sizes are in points. Output text is black. Checkboxes use Helvetica-Bold and horizontal centering regardless of fontFamily/align; vertical alignment, padding, and size still apply. Combs center each character horizontally in its own cell. For 8×8-point checkboxes in the example, the field explicitly uses 8-point text and zero padding.
 
@@ -99,12 +102,12 @@ Inside a slot only, `./name` means JSON Pointer `/name` evaluated against that s
 
 ### State table
 
-| Source state | Optional field | Required field |
-| --- | --- | --- |
-| Missing / null / exactly empty string | Blank; I_BLANK records the state | E_REQUIRED |
-| Numeric zero | Resolve and format normally | Resolve and format normally |
-| Boolean false | Resolve and format normally | Resolve and format normally |
-| Object/array leaf or invalid traversal | E_BINDING | E_BINDING |
+| Source state                           | Optional field                   | Required field              |
+| -------------------------------------- | -------------------------------- | --------------------------- |
+| Missing / null / exactly empty string  | Blank; I_BLANK records the state | E_REQUIRED                  |
+| Numeric zero                           | Resolve and format normally      | Resolve and format normally |
+| Boolean false                          | Resolve and format normally      | Resolve and format normally |
+| Object/array leaf or invalid traversal | E_BINDING                        | E_BINDING                   |
 
 A whitespace-only string is not the empty string; text format preserves it. Format handlers MAY reject an incompatible scalar type. A required checkbox requires a source value; it does not require the checkbox to be checked.
 
@@ -120,14 +123,14 @@ If the array has more items than slots, rendering MUST fail with E_REPEAT_OVERFL
 
 All formats use the discriminant `type` and reject unrelated properties.
 
-| Format | Properties / defaults | Input and behavior |
-| --- | --- | --- |
-| text | `case: asIs` (asIs/upper/lower) | string or finite number; case conversion; reject newline, tab, carriage return |
-| money | `rounding: wholeDollarHalfUp` (or cents), `negative: parentheses` (or minus), `zero: zero` (or dash/blank), `thousandsSeparator: true` | decimal string or safe integer number; exact decimal arithmetic |
-| date | required `pattern` (MM/DD/YYYY or YYYY-MM-DD) | valid calendar date string YYYY-MM-DD; year 0001–9999; Gregorian leap-year rules |
-| tin | required `subtype` (ssn/ein), `mask: formatted` (or digitsOnly) | string of nine digits or correctly hyphenated SSN/EIN; validate shape, not issuance or eligibility |
-| checkbox | required `checkedWhen: {equals: scalar}`, optional `group` | strict scalar equality; checked renders X, unchecked draws nothing |
-| comb | required `cellCount` (1–32); `characters: digits` (or alphanumeric); optional `exactLength` (1–32), optional `cells` | string; strip only ASCII spaces/hyphens; validate remaining characters; preserve leading zeroes |
+| Format   | Properties / defaults                                                                                                                  | Input and behavior                                                                                 |
+| -------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| text     | `case: asIs` (asIs/upper/lower)                                                                                                        | string or finite number; case conversion; reject newline, tab, carriage return                     |
+| money    | `rounding: wholeDollarHalfUp` (or cents), `negative: parentheses` (or minus), `zero: zero` (or dash/blank), `thousandsSeparator: true` | decimal string or safe integer number; exact decimal arithmetic                                    |
+| date     | required `pattern` (MM/DD/YYYY or YYYY-MM-DD)                                                                                          | valid calendar date string YYYY-MM-DD; year 0001–9999; Gregorian leap-year rules                   |
+| tin      | required `subtype` (ssn/ein), `mask: formatted` (or digitsOnly)                                                                        | string of nine digits or correctly hyphenated SSN/EIN; validate shape, not issuance or eligibility |
+| checkbox | required `checkedWhen: {equals: scalar}`, optional `group`                                                                             | strict scalar equality; checked renders X, unchecked draws nothing                                 |
+| comb     | required `cellCount` (1–32); `characters: digits` (or alphanumeric); optional `exactLength` (1–32), optional `cells`                   | string; strip only ASCII spaces/hyphens; validate remaining characters; preserve leading zeroes    |
 
 ### Money
 
@@ -135,14 +138,14 @@ Decimal strings MUST match `^-?\d+(\.\d+)?$`; no whitespace, separators, exponen
 
 Round the absolute magnitude half up to zero decimal places for whole dollars or two for cents, using the first discarded decimal digit. Retain arbitrary precision with integer/string arithmetic. Apply zero policy **after rounding**, suppressing negative zero. Group integer digits in threes with commas unless disabled. Apply sign last: parentheses by default, minus when selected. No currency symbol is added.
 
-| Input / options | Output |
-| --- | --- |
-| `"184650.49"`, whole dollars | `184,650` |
-| `"184650.50"`, whole dollars | `184,651` |
-| `"-14200.50"`, parentheses | `(14,201)` |
-| `"1.999"`, cents | `2.00` |
-| `"-0.49"`, whole dollars, zero=dash | `-0-` |
-| `"0"`, zero=blank | no drawing |
+| Input / options                     | Output     |
+| ----------------------------------- | ---------- |
+| `"184650.49"`, whole dollars        | `184,650`  |
+| `"184650.50"`, whole dollars        | `184,651`  |
+| `"-14200.50"`, parentheses          | `(14,201)` |
+| `"1.999"`, cents                    | `2.00`     |
+| `"-0.49"`, whole dollars, zero=dash | `-0-`      |
+| `"0"`, zero=blank                   | no drawing |
 
 Summation and tax calculations belong to the caller. Form 1040 instructs rounding line totals after adding unrounded amounts; the renderer receives those totals. Zero display is field-specific, not a universal tax-form convention.
 
@@ -201,35 +204,35 @@ Validation order: schema -> semantic -> PDF identity/geometry -> resolution -> f
 
 Diagnostic fields: required `code`, `severity` (error/warning/info), `stage`, `message`; optional `fieldId`, `page`, `sourcePath`, and `instancePath`. Stages use lowercase names shown above. Messages MUST NOT contain raw payload values or raw exception messages. `sensitive` is descriptive metadata; diagnostics are value-free for every field regardless of this flag. Paths/IDs originate in the template. The result's instructions and generated PDFs still contain supplied values.
 
-| Code | Meaning |
-| --- | --- |
-| E_SCHEMA | Invalid template structure; instancePath identifies location |
-| E_TEMPLATE | No field exists |
-| E_ID | Duplicate field/group IDs |
-| E_PAGE | Invalid/duplicate/missing page declarations or references |
-| E_BOUNDS | Rectangle outside page |
-| E_STYLE | Invalid font range or padded box |
-| E_CELLS | Invalid comb-cell geometry/count |
-| E_BINDING_CONTEXT | Relative binding outside a slot |
-| E_PDF_HASH | Blank PDF fingerprint mismatch |
-| E_PDF_LOAD | Unreadable/encrypted PDF or preparation failure |
-| E_PDF_PAGES | Wrong PDF page count |
-| E_PDF_GEOMETRY | Unsupported rotation, box offsets/cropping, or UserUnit |
-| E_PDF_SIZE | Declared and actual page sizes differ |
-| E_ARRAY | Group source does not resolve to an array |
-| E_REPEAT_OVERFLOW | More items than slots |
-| E_BINDING | Invalid pointer/traversal or nonscalar leaf |
-| E_REQUIRED | Required field is missing/null/empty |
-| E_FORMAT | Invalid scalar input for format |
-| E_DATE | Invalid date |
-| E_TIN | Invalid identifier syntax |
-| E_COMB | Invalid characters, length, or capacity |
-| E_CHECKBOX_GROUP | Multiple checked values in exclusive set |
-| E_GLYPH | Font cannot encode content |
-| E_OVERFLOW | Content cannot fit at permitted sizes |
-| E_RENDER | PDF output serialization failed |
-| W_SHRUNK | Smaller size selected to fit |
-| I_BLANK | Optional value missing/null/empty |
+| Code              | Meaning                                                      |
+| ----------------- | ------------------------------------------------------------ |
+| E_SCHEMA          | Invalid template structure; instancePath identifies location |
+| E_TEMPLATE        | No field exists                                              |
+| E_ID              | Duplicate field/group IDs                                    |
+| E_PAGE            | Invalid/duplicate/missing page declarations or references    |
+| E_BOUNDS          | Rectangle outside page                                       |
+| E_STYLE           | Invalid font range or padded box                             |
+| E_CELLS           | Invalid comb-cell geometry/count                             |
+| E_BINDING_CONTEXT | Relative binding outside a slot                              |
+| E_PDF_HASH        | Blank PDF fingerprint mismatch                               |
+| E_PDF_LOAD        | Unreadable/encrypted PDF or preparation failure              |
+| E_PDF_PAGES       | Wrong PDF page count                                         |
+| E_PDF_GEOMETRY    | Unsupported rotation, box offsets/cropping, or UserUnit      |
+| E_PDF_SIZE        | Declared and actual page sizes differ                        |
+| E_ARRAY           | Group source does not resolve to an array                    |
+| E_REPEAT_OVERFLOW | More items than slots                                        |
+| E_BINDING         | Invalid pointer/traversal or nonscalar leaf                  |
+| E_REQUIRED        | Required field is missing/null/empty                         |
+| E_FORMAT          | Invalid scalar input for format                              |
+| E_DATE            | Invalid date                                                 |
+| E_TIN             | Invalid identifier syntax                                    |
+| E_COMB            | Invalid characters, length, or capacity                      |
+| E_CHECKBOX_GROUP  | Multiple checked values in exclusive set                     |
+| E_GLYPH           | Font cannot encode content                                   |
+| E_OVERFLOW        | Content cannot fit at permitted sizes                        |
+| E_RENDER          | PDF output serialization failed                              |
+| W_SHRUNK          | Smaller size selected to fit                                 |
+| I_BLANK           | Optional value missing/null/empty                            |
 
 ## 8. Conformance, decisions, and roadmap
 

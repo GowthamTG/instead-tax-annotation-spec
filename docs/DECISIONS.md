@@ -1,18 +1,18 @@
 # Design decisions and future work
 
-| Decision | Reason | Cost / alternative |
-| --- | --- | --- |
-| JSON + closed JSON Schema + TypeScript types | Portable interchange plus authoring checks | Types/schema are maintained together and checked with fixtures; no external code generator |
-| Flat fields plus explicit fixed slots | Easy review and accurate horizontal/irregular forms | Some geometry repetition, preferable to incorrect assumed row offsets |
-| JSON Pointer plus concat | Deterministic deep references without executable expressions | Caller must preselect/filter arrays; JSONPath deferred |
-| Bottom-left points, one-based pages | Matches native PDF rectangles; explicit dimensions enable fit checks | Current adapter rejects transformed pages; authoring tools may later convert other origins |
-| Decimal strings / safe integer money | Deterministic arithmetic without accepting binary fractional inputs | Producers must serialize money correctly |
-| Font-metric fit in both dimensions | Preserves digits and descenders; errors are visible | Some long values cannot fit; no clipping/wrapping escape hatch |
-| Strict errors prevent PDF output | A partially filled PDF could hide a material failure | Debug overlays require valid data; a future preview must visibly distinguish invalid fields |
-| SHA-256 binding | Prevents accidentally applying geometry to a different PDF | Even a harmless re-save needs reviewed migration |
-| Standard-font adapter with unkerned advance measurement | Matches actual library emission; independent PDF.js tests exposed pair-kerning differences | Limited glyph coverage; custom fonts need explicit registration |
-| Widget removal preserves other annotations | Removes interactive overlays without losing links/comments | Not a general existing-filled-form migration tool |
-| Source diagnostics never contain raw values | Safe logs regardless of sensitivity metadata | PDFs and in-memory instructions still require ordinary sensitive-data handling |
+| Decision                                                | Reason                                                                                     | Cost / alternative                                                                          |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
+| JSON + closed JSON Schema + TypeScript types            | Portable interchange plus authoring checks                                                 | Types/schema are maintained together and checked with fixtures; no external code generator  |
+| Flat fields plus explicit fixed slots                   | Easy review and accurate horizontal/irregular forms                                        | Some geometry repetition, preferable to incorrect assumed row offsets                       |
+| JSON Pointer plus concat                                | Deterministic deep references without executable expressions                               | Caller must preselect/filter arrays; JSONPath deferred                                      |
+| Bottom-left points, one-based pages                     | Matches native PDF rectangles; explicit dimensions enable fit checks                       | Current adapter rejects transformed pages; authoring tools may later convert other origins  |
+| Decimal strings / safe integer money                    | Deterministic arithmetic without accepting binary fractional inputs                        | Producers must serialize money correctly                                                    |
+| Font-metric fit in both dimensions                      | Preserves digits and descenders; errors are visible                                        | Some long values cannot fit; no clipping/wrapping escape hatch                              |
+| Strict errors prevent PDF output                        | A partially filled PDF could hide a material failure                                       | Debug overlays require valid data; a future preview must visibly distinguish invalid fields |
+| SHA-256 binding                                         | Prevents accidentally applying geometry to a different PDF                                 | Even a harmless re-save needs reviewed migration                                            |
+| Standard-font adapter with unkerned advance measurement | Matches actual library emission; independent PDF.js tests exposed pair-kerning differences | Limited glyph coverage; custom fonts need explicit registration                             |
+| Widget removal preserves other annotations              | Removes interactive overlays without losing links/comments                                 | Not a general existing-filled-form migration tool                                           |
+| Source diagnostics never contain raw values             | Safe logs regardless of sensitivity metadata                                               | PDFs and in-memory instructions still require ordinary sensitive-data handling              |
 
 ## Priority enhancements
 

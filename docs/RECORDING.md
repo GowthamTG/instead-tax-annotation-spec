@@ -16,14 +16,14 @@ Native capture records the selected region at its display resolution. It does no
 
 ## Cue sheet
 
-| Time | Visible action | Key point |
-| --- | --- | --- |
-| 0:00–0:30 | Clean PDF: header, dependents, then page-two zero | Show the outcome immediately |
-| 0:30–1:20 | Template: select wages entry and basePdf block | Portable contract; independent implementation |
-| 1:20–2:10 | Payload: wages, digital false, dependent array | Nested pointers; exact decimals; zero/false |
+| Time      | Visible action                                         | Key point                                          |
+| --------- | ------------------------------------------------------ | -------------------------------------------------- |
+| 0:00–0:30 | Clean PDF: header, dependents, then page-two zero      | Show the outcome immediately                       |
+| 0:30–1:20 | Template: select wages entry and basePdf block         | Portable contract; independent implementation      |
+| 1:20–2:10 | Payload: wages, digital false, dependent array         | Nested pointers; exact decimals; zero/false        |
 | 2:10–3:00 | Debug PDF: header, dependent columns, page-two routing | Actual calibrated geometry, fit, unsupported cases |
-| 3:00–3:45 | Terminal: `npm test`, then `npm run demo:fail` | Independent verification and safe failures |
-| 3:45–4:30 | Specification/decisions | Tradeoffs, new-form authoring, future work |
+| 3:00–3:45 | Terminal: `npm test`, then `npm run demo:fail`         | Independent verification and safe failures         |
+| 3:45–4:30 | Specification/decisions                                | Tradeoffs, new-form authoring, future work         |
 
 ## Rehearse twice
 

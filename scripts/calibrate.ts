@@ -1,4 +1,5 @@
 import { readFile, writeFile } from 'node:fs/promises';
+import { format, resolveConfig } from 'prettier';
 import type { Template } from '../src/schema/types.js';
 import { allFields, validateSchema, validateSemantics } from '../src/core/validator.js';
 import { inspect } from './inspect.js';
@@ -35,5 +36,6 @@ if (process.argv[1]?.endsWith('calibrate.ts')) {
   const path = 'examples/f1040-2025.template.json';
   const template = JSON.parse(await readFile(path, 'utf8')) as Template;
   const calibrated = await calibrate(template, await inspect());
-  await writeFile(path, JSON.stringify(calibrated, null, 2) + '\n');
+  const options = await resolveConfig(path);
+  await writeFile(path, await format(JSON.stringify(calibrated), { ...options, filepath: path }));
 }

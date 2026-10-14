@@ -59,13 +59,24 @@ The reference renderer deliberately supports only zero-origin, unrotated pages w
 
 ## Design and assessment coverage
 
-| Assignment requirement | Evidence |
-| --- | --- |
-| New annotation structure | JSON Schema and TypeScript types in `src/schema` |
-| Written specification for independent developers | [SPECIFICATION.md](docs/SPECIFICATION.md) |
-| Positioning and formatting | Rectangles, typography, format unions, layout tests, and PDFs |
-| Deeply nested value references | RFC 6901 bindings, concat, relative slot bindings, resolver tests |
-| Design decisions and future enhancements | [DECISIONS.md](docs/DECISIONS.md) |
-| Video at most five minutes | [Recording guide](docs/RECORDING.md); final recording pending |
+| Assignment requirement                           | Evidence                                                          |
+| ------------------------------------------------ | ----------------------------------------------------------------- |
+| New annotation structure                         | JSON Schema and TypeScript types in `src/schema`                  |
+| Written specification for independent developers | [SPECIFICATION.md](docs/SPECIFICATION.md)                         |
+| Positioning and formatting                       | Rectangles, typography, format unions, layout tests, and PDFs     |
+| Deeply nested value references                   | RFC 6901 bindings, concat, relative slot bindings, resolver tests |
+| Design decisions and future enhancements         | [DECISIONS.md](docs/DECISIONS.md)                                 |
+| Video at most five minutes                       | [Recording guide](docs/RECORDING.md); final recording pending     |
 
 See [research and source notes](docs/RESEARCH.md) and [verification details](docs/VERIFICATION.md). No browser application or tax engine is required to use the contract.
+
+## Formatting
+
+Prettier 3.9.10 is pinned in the lockfile. The project-local configuration uses two-space indentation, semicolons, single quotes in JavaScript/TypeScript, trailing commas, LF endings, and a 100-column target. EditorConfig and Cursor/VS Code extension recommendations keep editor behavior consistent.
+
+```bash
+npm run format       # Format all supported source and documentation files
+npm run format:check # Non-mutating check; also runs in CI
+```
+
+Generated outputs, recordings, dependencies, and PDFs are excluded. Prettier does not format the Python packaging utility.
