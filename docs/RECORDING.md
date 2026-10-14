@@ -1,52 +1,49 @@
-# Recording guide — Gowtham T G
+# Record the Instead walkthrough
 
-Target **4:30**. Hard limit **5:00**. Use your own voice, no webcam needed. The speech script below is also saved separately in `docs/VIDEO-SCRIPT.md` so it is easy to read on a phone or second screen.
+Use the concise 408-word [script](VIDEO-SCRIPT.md) at about **160 words per minute**. Narration takes roughly **2:37**, including the teleprompter's short section pauses. Allow additional time to switch files and show results. Aim for a natural **3–4 minute** recording; the assignment's hard limit is **5:00**.
 
-## Stage the screen
+## Have these ready
 
-1. Run `npm test`, `npm run demo`, and `npm run demo:fail` before recording. Do not discover dependency problems during the take.
-2. Open the project in VS Code. Pre-open the template, fictional payload, specification, layout module, and decision notes. Use readable font sizes (roughly 18–22 points depending on display scaling).
-3. Open the clean and debug output PDFs in Preview. Begin on the clean PDF's first-page header; precheck the zoom needed for its dependent columns and page-two zero/routing grid. Prefer one large readable window at a time over cramped halves.
-4. Open the VS Code terminal at the project root, with the commands `npm test` and `npm run demo:fail` ready in history. The printed test count is 86.
-5. Enable Do Not Disturb; hide unrelated apps, personal tabs, email, and notifications. Put the script on a phone or second display outside the recorded region.
-6. Press **Command–Shift–5**. Select a region containing only the demonstration windows, then **Options → Microphone** and select the microphone you will use. Save the recording locally in this project's `submission` folder; recording files are ignored by Git.
-7. Make a **20-second test recording**: say the opening sentence and switch from PDF to editor. Stop with the menu-bar stop control or Command–Control–Escape. Play it back and verify voice, legibility, and no unrelated content. Apple reference: https://support.apple.com/en-in/102618.
+Cursor tabs, left to right:
 
-Native capture records the selected region at its display resolution. It does not offer an independent “1080p” setting. Use a readable region rather than assuming an exact output size.
+1. `examples/f1040-2025.template.json` — wages field and basePdf block.
+2. `examples/f1040-2025-payload.json` — false, wages, and dependents.
+3. `src/core/layout.ts` — shrinking and fit checks.
+4. `docs/DECISIONS.md` — decisions and future work.
 
-## Cue sheet
+PDF viewer tabs: clean PDF first, debug PDF second. Start on page 1 of the clean PDF. Keep Cursor's terminal at this project's root, with `npm test` and `npm run demo:fail` ready. Keep the teleprompter outside the recorded area.
 
-| Time      | Visible action                                         | Key point                                          |
-| --------- | ------------------------------------------------------ | -------------------------------------------------- |
-| 0:00–0:30 | Clean PDF: header, dependents, then page-two zero      | Show the outcome immediately                       |
-| 0:30–1:20 | Template: select wages entry and basePdf block         | Portable contract; independent implementation      |
-| 1:20–2:10 | Payload: wages, digital false, dependent array         | Nested pointers; exact decimals; zero/false        |
-| 2:10–3:00 | Debug PDF: header, dependent columns, page-two routing | Actual calibrated geometry, fit, unsupported cases |
-| 3:00–3:45 | Terminal: `npm test`, then `npm run demo:fail`         | Independent verification and safe failures         |
-| 3:45–4:30 | Specification/decisions                                | Tradeoffs, new-form authoring, future work         |
+## Record
 
-## Rehearse twice
+1. Refresh the teleprompter. Confirm **160 wpm**, first words **“Here's the result”**, and a total near **2:37**. If an old edited script appears, press E and select Reset to config.js, then Save.
+2. Enable Do Not Disturb and hide unrelated windows. Set readable zoom in the PDF viewer and Cursor.
+3. Press **Command–Shift–5**, choose **Record Selected Portion**, and frame only the demo windows. In **Options**, choose your microphone and set a five-second timer if you want a lead-in.
+4. Make a 20-second microphone test and replay it. Check the voice is audible and text is legible.
+5. Return the clean PDF to page 1 and restart the prompter with R. Click Record. Focus the prompter and press Space when you begin speaking.
+6. Follow the silent SHOW NOW cues. Use Space to pause scrolling while switching windows; resume when ready. Do not read the cue panel aloud.
+7. At the end, stop with **Command–Control–Escape** or the menu-bar stop button. Save as `submission/walkthrough.mov`.
 
-First take: speak naturally and perform every action. Check your elapsed time at 1:20, 2:10, and 3:45. Second take: use only the cue sheet to make the narration conversational. Do not race through terminology or read full property lists.
+## Screen order
 
-If you go over 4:40, shorten the explanation rather than speeding up. Keep a little silence between screen transitions. Skip optional detail before sacrificing the failure demonstration or conclusions. A final take over five minutes must be shortened/re-recorded.
+| Section      | Show                                                                     |
+| ------------ | ------------------------------------------------------------------------ |
+| Result       | Clean PDF: header/dependents, then page-two zero and routing digits      |
+| One field    | Template: wages field, then PDF fingerprint                              |
+| Data         | Payload: nested values, false, decimal wages, dependent array            |
+| Placement    | Debug PDF, then layout code when the script says “Here is the fit check” |
+| Verification | Run `npm test`, then `npm run demo:fail`                                 |
+| Choices      | Decision table and future-work list                                      |
 
-## Check the final file
+The teleprompter calculates cue timestamps from the current pace. Actual video time will include your extra pauses. Follow the sentence cues rather than chasing a stopwatch.
 
-Watch the **entire** recording: audible voice, stable levels, readable values, correct files, no notification/personal data, no unverified claims. Verify actual duration (QuickTime's timeline or `ffprobe`). A prepared script is not evidence of recording duration.
+## Review and share
 
-To inspect a saved local recording:
+Watch the entire final take. Check audio, legibility, correct file switches, and duration below five minutes. Remove only unnecessary lead-in/end pauses if needed; keep the walkthrough coherent.
 
 ```bash
 ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:nokey=1 submission/walkthrough.mov
 ```
 
-Save the original. If necessary trim only pauses/start/end in QuickTime; preserve the coherent walkthrough and your voice. Do not replace it with synthetic narration.
+Upload the accepted take to Drive, set **Anyone with the link → Viewer**, and verify playback without login. Add the verified link and actual duration to the README and local email draft before sending. Recording files are excluded from Git.
 
-## Share and submit
-
-Upload the accepted recording to Drive. Set **General access → Anyone with the link → Viewer**. Wait for processing, then open the link in a signed-out/incognito window and play it. Check both the start and end, not merely whether a preview page opens.
-
-Update the README's pending walkthrough notice with the verified link and actual duration. Add the same link to the local submission email draft. Open the public repository without login, confirm its verification workflow, and download its source ZIP before sending.
-
-A recording has not been made or uploaded merely because these materials exist. Final publication/submission status is tracked locally in `submission/STATUS.md`.
+[Apple's screen-recording instructions](https://support.apple.com/en-in/102618)
