@@ -1,0 +1,32 @@
+{
+  "name": "instead-tax-annotation-spec",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Portable tax-form annotation contract and TypeScript reference renderer",
+  "scripts": {
+    "inspect": "node --import tsx scripts/inspect.ts",
+    "calibrate": "node --import tsx scripts/calibrate.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "demo": "node --import tsx src/cli/demo.ts",
+    "demo:fail": "node --import tsx src/cli/demo.ts --fail",
+    "package": "python3 scripts/package.py",
+    "format": "prettier --write \"src/**/*.ts\" \"scripts/**/*.ts\" \"tests/**/*.ts\"",
+    "format:check": "prettier --check \"src/**/*.ts\" \"scripts/**/*.ts\" \"tests/**/*.ts\""
+  },
+  "dependencies": {
+    "@cantoo/pdf-lib": "2.11.1",
+    "ajv": "8.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.0",
+    "pdfjs-dist": "5.4.296",
+    "prettier": "3.6.2",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  },
+  "engines": {
+    "node": ">=22.13"
+  }
+}

@@ -1,0 +1,561 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:instead-assessment:tax-annotation:1.0.0",
+  "title": "Tax form annotation template v1",
+  "type": "object",
+  "properties": {
+    "specVersion": {
+      "const": "1.0.0"
+    },
+    "templateId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$"
+    },
+    "form": {
+      "type": "object",
+      "properties": {
+        "number": {
+          "type": "string"
+        },
+        "taxYear": {
+          "type": "integer",
+          "minimum": 1900,
+          "maximum": 2100
+        },
+        "revision": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "number",
+        "revision"
+      ],
+      "additionalProperties": false
+    },
+    "basePdf": {
+      "type": "object",
+      "properties": {
+        "fileName": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "sourceUrl": {
+          "type": "string"
+        },
+        "pageCount": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "fileName",
+        "sha256",
+        "pageCount"
+      ],
+      "additionalProperties": false
+    },
+    "pages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "pageNumber": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "width": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "height": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          }
+        },
+        "required": [
+          "pageNumber",
+          "width",
+          "height"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "defaults": {
+      "$ref": "#/$defs/Style"
+    },
+    "fields": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Field"
+      },
+      "minItems": 0
+    },
+    "repeatingGroups": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/Group"
+      },
+      "minItems": 0
+    }
+  },
+  "required": [
+    "specVersion",
+    "templateId",
+    "form",
+    "basePdf",
+    "pages",
+    "fields"
+  ],
+  "additionalProperties": false,
+  "patternProperties": {
+    "^x-": {}
+  },
+  "$defs": {
+    "Rect": {
+      "type": "object",
+      "properties": {
+        "x": {
+          "type": "number",
+          "minimum": 0
+        },
+        "y": {
+          "type": "number",
+          "minimum": 0
+        },
+        "width": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "height": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "width",
+        "height"
+      ],
+      "additionalProperties": false
+    },
+    "Style": {
+      "type": "object",
+      "properties": {
+        "fontFamily": {
+          "type": "string",
+          "enum": [
+            "Helvetica",
+            "Helvetica-Bold",
+            "Courier"
+          ],
+          "default": "Helvetica"
+        },
+        "fontSize": {
+          "type": "number",
+          "minimum": 8,
+          "default": 9
+        },
+        "minFontSize": {
+          "type": "number",
+          "minimum": 8,
+          "default": 8
+        },
+        "padding": {
+          "type": "number",
+          "minimum": 0,
+          "default": 1
+        },
+        "align": {
+          "type": "string",
+          "enum": [
+            "left",
+            "center",
+            "right"
+          ],
+          "default": "left"
+        },
+        "verticalAlign": {
+          "type": "string",
+          "enum": [
+            "bottom",
+            "middle",
+            "top"
+          ],
+          "default": "middle"
+        },
+        "overflow": {
+          "type": "string",
+          "enum": [
+            "shrink",
+            "error"
+          ],
+          "default": "shrink"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "Pointer": {
+      "type": "string",
+      "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+    },
+    "FieldPointer": {
+      "type": "string",
+      "pattern": "^(?:\\./(?:[^~/]|~[01])*(?:/(?:[^~/]|~[01])*)*|(?:/(?:[^~/]|~[01])*)*)$"
+    },
+    "Binding": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/FieldPointer"
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "concat"
+            },
+            "parts": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/FieldPointer"
+              },
+              "minItems": 1
+            },
+            "separator": {
+              "type": "string",
+              "default": " "
+            }
+          },
+          "required": [
+            "kind",
+            "parts"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Format": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "text"
+            },
+            "case": {
+              "type": "string",
+              "enum": [
+                "asIs",
+                "upper",
+                "lower"
+              ],
+              "default": "asIs"
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "money"
+            },
+            "rounding": {
+              "type": "string",
+              "enum": [
+                "wholeDollarHalfUp",
+                "cents"
+              ],
+              "default": "wholeDollarHalfUp"
+            },
+            "negative": {
+              "type": "string",
+              "enum": [
+                "parentheses",
+                "minus"
+              ],
+              "default": "parentheses"
+            },
+            "zero": {
+              "type": "string",
+              "enum": [
+                "zero",
+                "dash",
+                "blank"
+              ],
+              "default": "zero"
+            },
+            "thousandsSeparator": {
+              "type": "boolean",
+              "default": true
+            }
+          },
+          "required": [
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "date"
+            },
+            "pattern": {
+              "type": "string",
+              "enum": [
+                "MM/DD/YYYY",
+                "YYYY-MM-DD"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "pattern"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "tin"
+            },
+            "subtype": {
+              "type": "string",
+              "enum": [
+                "ssn",
+                "ein"
+              ]
+            },
+            "mask": {
+              "type": "string",
+              "enum": [
+                "formatted",
+                "digitsOnly"
+              ],
+              "default": "formatted"
+            }
+          },
+          "required": [
+            "type",
+            "subtype"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "checkbox"
+            },
+            "checkedWhen": {
+              "type": "object",
+              "properties": {
+                "equals": {
+                  "anyOf": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "boolean"
+                    },
+                    {
+                      "type": "number"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "equals"
+              ],
+              "additionalProperties": false
+            },
+            "group": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "type",
+            "checkedWhen"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "comb"
+            },
+            "cellCount": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32
+            },
+            "characters": {
+              "type": "string",
+              "enum": [
+                "digits",
+                "alphanumeric"
+              ],
+              "default": "digits"
+            },
+            "exactLength": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 32
+            },
+            "cells": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "offset": {
+                    "type": "number",
+                    "minimum": 0
+                  },
+                  "width": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  }
+                },
+                "required": [
+                  "offset",
+                  "width"
+                ],
+                "additionalProperties": false
+              },
+              "minItems": 1
+            }
+          },
+          "required": [
+            "type",
+            "cellCount"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "Field": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]*$"
+        },
+        "page": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rect": {
+          "$ref": "#/$defs/Rect"
+        },
+        "binding": {
+          "$ref": "#/$defs/Binding"
+        },
+        "format": {
+          "$ref": "#/$defs/Format"
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "sensitive": {
+          "type": "boolean",
+          "default": false
+        },
+        "style": {
+          "$ref": "#/$defs/Style"
+        },
+        "description": {
+          "type": "string"
+        },
+        "provenance": {
+          "type": "object",
+          "properties": {
+            "widgetName": {
+              "type": "string"
+            },
+            "widgetIndex": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "label": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "widgetName",
+            "widgetIndex",
+            "label"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "id",
+        "page",
+        "rect",
+        "binding",
+        "format"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^x-": {}
+      }
+    },
+    "Group": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_.-]*$"
+        },
+        "arraySource": {
+          "$ref": "#/$defs/Pointer"
+        },
+        "slots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/Field"
+                },
+                "minItems": 1
+              }
+            },
+            "required": [
+              "fields"
+            ],
+            "additionalProperties": false
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "id",
+        "arraySource",
+        "slots"
+      ],
+      "additionalProperties": false,
+      "patternProperties": {
+        "^x-": {}
+      }
+    }
+  }
+}

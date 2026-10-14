@@ -1,0 +1,64 @@
+{
+  "taxpayer": {
+    "primary": {
+      "name": {
+        "first": "Jordan",
+        "middleInitial": "M",
+        "last": "Vance"
+      },
+      "identifiers": {
+        "ssn": "900-12-3456"
+      },
+      "contact": {
+        "mailingAddress": {
+          "street": "14285 Northview Corporate Center Boulevard, Suite 400B",
+          "city": "Example City",
+          "state": "CA",
+          "zip": "00000"
+        }
+      }
+    }
+  },
+  "returnHeader": {
+    "filingStatus": "single"
+  },
+  "returnData": {
+    "questions": {
+      "hasDigitalAssets": false
+    }
+  },
+  "income": {
+    "w2Summary": {
+      "totalWages": "184650.75"
+    },
+    "capitalGains": {
+      "netGainOrLoss": "-14200.40"
+    }
+  },
+  "calculatedLines": {
+    "line15TaxableIncome": "0.00"
+  },
+  "refund": {
+    "directDeposit": {
+      "routingNumber": "000000000"
+    }
+  },
+  "household": {
+    "dependents": [
+      {
+        "firstName": "Maya",
+        "lastName": "Vance",
+        "ssn": "900-11-0001",
+        "relationship": "Daughter",
+        "childTaxCredit": true
+      },
+      {
+        "firstName": "Leo",
+        "lastName": "Vance",
+        "ssn": "900-11-0002",
+        "relationship": "Son",
+        "childTaxCredit": true
+      }
+    ]
+  }
+}

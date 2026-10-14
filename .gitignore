@@ -1,0 +1,9 @@
+node_modules/
+.DS_Store
+.env*
+*.mov
+*.mp4
+submission/
+output/*.png
+output/inspection.json
+output/verification.json
