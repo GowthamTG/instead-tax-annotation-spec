@@ -20,7 +20,7 @@ This debug PDF shows the field rectangles and text baselines. Coordinates are bo
 
 ## Prove it works
 
-The project has 86 passing tests. PDF.js independently reads the generated output and checks all 55 populated text runs across both pages: their values, positions, and font-metric bounds. I also inspected the rendered PDFs against the artwork. Prettier checks formatting in CI. Now the failure demo: a missing required name, invalid identifier, and oversized amount produce structured errors. No PDF is emitted, and the diagnostics don't expose raw taxpayer values.
+The project has 86 passing tests. PDF.js independently reads the generated output and checks all 55 populated text runs across both pages: their values, positions, and font-metric bounds. I also inspected the rendered PDFs against the artwork. Now the failure demo: a missing required name, invalid identifier, and oversized amount produce structured errors. No PDF is emitted, and the diagnostics don't expose raw taxpayer values.
 
 ## Explain the choices
 
