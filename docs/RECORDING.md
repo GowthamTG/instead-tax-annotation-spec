@@ -1,6 +1,6 @@
 # Record the Instead walkthrough
 
-Use the concise 408-word [script](VIDEO-SCRIPT.md) at about **160 words per minute**. Narration takes roughly **2:37**, including the teleprompter's short section pauses. Allow additional time to switch files and show results. Aim for a natural **3–4 minute** recording; the assignment's hard limit is **5:00**.
+Use the concise 413-word [script](VIDEO-SCRIPT.md) at about **160 words per minute**. Narration takes roughly **2:38**, including the teleprompter's short section pauses. Allow additional time to switch files and show results. Aim for a natural **3–4 minute** recording; the assignment's hard limit is **5:00**.
 
 ## Have these ready
 
@@ -15,7 +15,7 @@ PDF viewer tabs: clean PDF first, debug PDF second. Start on page 1 of the clean
 
 ## Record
 
-1. Refresh the teleprompter. Confirm **160 wpm**, first words **“Here's the result”**, and a total near **2:37**. If an old edited script appears, press E and select Reset to config.js, then Save.
+1. Refresh the teleprompter. Confirm **160 wpm**, first words **“Hi, I'm Gowtham T G”**, and a total near **2:38**. If an old edited script appears, press E and select Reset to config.js, then Save.
 2. Enable Do Not Disturb and hide unrelated windows. Set readable zoom in the PDF viewer and Cursor.
 3. Press **Command–Shift–5**, choose **Record Selected Portion**, and frame only the demo windows. In **Options**, choose your microphone and set a five-second timer if you want a lead-in.
 4. Make a 20-second microphone test and replay it. Check the voice is audible and text is legible.
