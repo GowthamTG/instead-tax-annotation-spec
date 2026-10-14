@@ -4,11 +4,11 @@ Read naturally at about 160 words per minute. Follow the teleprompter's silent f
 
 ## Show the result
 
-Hi, I'm Gowtham T G. Here's the result: data printed into the boxes on the official 2025 Form 1040. The names, checkboxes, dependent details, and amounts come from a fictional dataset. On page two, you can see the zero taxable-income value and the routing-number grid. This example demonstrates placement and formatting; it isn't a calculated tax return.
+Hi, I'm Gowtham T G. Here's my solution to the assignment, and the thinking behind it. I'll start with the result: data printed into the boxes on the official 2025 Form 1040. The names, checkboxes, dependent details, and amounts come from a fictional dataset. On page two, you can see the zero taxable-income value and the routing-number grid. This example demonstrates placement and formatting; it isn't a calculated tax return.
 
 ## Explain one field
 
-This JSON template is the annotation specification. Each field defines a page, a bounding rectangle, a data reference, and a format. Take the wages field: its binding selects the income value, its format rounds the amount, and its style aligns it to the right. The PDF fingerprint ties these coordinates to the correct form revision. JSON Schema validates the template, and the written specification defines the defaults and error behavior. Another developer can implement this contract with their own PDF library.
+My approach was to keep the data, the annotation rules, and the PDF rendering separate. This JSON template is the annotation specification. Each field defines a page, a bounding rectangle, a data reference, and a format. Take the wages field: its binding selects the income value, its format rounds the amount, and its style aligns it to the right. The PDF fingerprint ties these coordinates to the correct form revision. JSON Schema validates the template, and the written specification defines the defaults and error behavior. Another developer can implement this contract with their own PDF library.
 
 ## Follow the data
 
